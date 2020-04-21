@@ -1,0 +1,78 @@
+# Final Project
+
+## Checkers
+
+Implement Standard American Checkers game with a bot.
+Bot's logic is as simple as abc - bot should do any random possible move (except capturing which is mandatory).
+
+### Game Basics
+
+* Checkers is played by two players (player and a bot). Each player begins the game with 12 colored discs. (Typically, one set of pieces is black (X) and the other red (O).) Each player places his or her pieces on the 12 dark squares closest to him or her. Black moves first. Players then alternate moves.
+* The board consists of 64 squares, alternating between 32 dark and 32 light squares. It is positioned so that each player has a light square on the right side corner closest to him or her.
+* A player wins the game when the opponent cannot make a move. In most cases, this is because all of the opponent's pieces have been captured, but it could also be because all of his pieces are blocked in.
+
+### Rules of the Game
+
+* Moves are allowed only on the dark squares, so pieces always move diagonally. Single pieces are always limited to forward moves (toward the opponent).
+* A piece making a non-capturing move (not involving a jump) may move only one square.
+* A piece making a capturing move (a jump) leaps over one of the opponent's pieces, landing in a straight diagonal line on the other side. * Only one piece may be captured in a single jump; however, multiple jumps are allowed during a single turn.
+* When a piece is captured, it is removed from the board.
+* If a player is able to make a capture, there is no option; the jump must be made. If more than one capture is available, the player is free to choose whichever he or she prefers.
+
+*Optional advanced tasks
+
+* When a piece reaches the furthest row from the player who controls that piece, it is crowned and becomes a king. King should be marked as 'x' or 'o' in lower case.
+* Kings are limited to moving diagonally but may move both forward and backward in any number of free cells. (Remember that single pieces, i.e. non-kings, are always limited to forward moves.)
+* Kings may combine jumps in several directions, forward and backward, on the same turn. Single pieces may shift direction diagonally during a multiple capture turn, but must always jump forward (toward the opponent).
+
+### Example
+
+To make a move you should enter cell's coordinate of a checker to move and destination cell's coordinate.
+Start of a game (player - O, bot - X):
+```
+    A B C D E F G H   
+
+1  | |X| |X| |X| |X|  1
+2  |X| |X| |X| |X| |  2
+3  | |X| |X| |X| |X|  3
+4  | | | | | | | | |  4
+5  | | | | | | | | |  5
+6  |O| |O| |O| |O| |  6
+7  | |O| |O| |O| |O|  7
+8  |O| |O| |O| |O| |  8
+
+    A B C D E F G H 
+```  
+Input (cell's coordinate of a checker to move): A6
+Input (destination cell's coordinate): B5
+
+Updated map:
+```
+    A B C D E F G H   
+
+1  | |X| |X| |X| |X|  1
+2  |X| |X| |X| |X| |  2
+3  | |X| |X| |X| |X|  3
+4  | | | | | | | | |  4
+5  | |O| | | | | | |  5
+6  | | |O| |O| |O| |  6
+7  | |O| |O| |O| |O|  7
+8  |O| |O| |O| |O| |  8
+
+    A B C D E F G H 
+```
+Bot's move:
+```
+    A B C D E F G H   
+
+1  | |X| |X| |X| |X|  1
+2  |X| |X| |X| |X| |  2
+3  | | | |X| |X| |X|  3
+4  |X| | | | | | | |  4
+5  | |O| | | | | | |  5
+6  | | |O| |O| |O| |  6
+7  | |O| |O| |O| |O|  7
+8  |O| |O| |O| |O| |  8
+
+    A B C D E F G H 
+```
